@@ -15,6 +15,7 @@ void sighandler(int signo){
 }
 int main(int argc,char *argv[]){
 	int pid=fork();
+	//This is parent
 	if(pid>0){
 		write(1,"PARENT RUN",10);
 		pause();
@@ -22,6 +23,7 @@ int main(int argc,char *argv[]){
 
 		
 	}
+	//This is child
 	if(pid==0){
 		int ret=kill(getppid(),0);
 		if(ret==0){
